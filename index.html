@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
+    <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+<body>
+    <main class="main-frame">
+        <article class="game-frame">
+        <section class="main-menu" id="mainmenu">
+            <h1>ROCK <br>PAPER <br>SCISSORS
+                <span class="sticker"><i class="fa fa-scissors"></i></span>
+                <span class="sticker"><i class="fa-solid fa-hand-back-fist"></i></span>
+                <span class="sticker"><i class="fa-solid fa-hand"></i></span>
+            </h1>
+
+
+            <button class="main-start" onclick="TutorialGo()">Start</button>
+        </section>
+        <section class="tutorial" id="tutorial">
+            <h1>These are the Rules</h1>
+            <ul class="game-rules" id="game-rule">
+                <li>
+                    <i class="fa fa-hand-back-fist"></i>
+                        <div>
+                            <h1>Rock</h1>
+                            <p>Rock > Scissors</p>
+                        </div>
+                </li>
+                <li>
+                    <i class="fa fa-hand"></i>
+                        <div>
+                            <h1>Paper</h1>
+                            <p>Paper > Rock</p>
+                        </div>
+                </li>
+                <li>
+                    <i class="fa fa-scissors"></i>
+                        <div>
+                            <h1>Scissors</h1>
+                            <p>Scissors > Paper</p>
+                        </div>
+                </li>
+            </ul>
+            <ul class="game-play-rule" id="game-play-rule">
+                <li>
+                    <i class="fa fa-users" aria-hidden="true"></i>
+                    <h1 style="right: -10rem;">This is a <br>Two Player Game</h1>
+                    <p>Player 1 will go first and choose. Then Player 2 will go Next. In case of a draw the game will restart</p>
+                </li>
+                <li>
+                    <i class="fa fa-trophy" aria-hidden="true"></i>
+                    <h1 style="right: -10rem;">There will <br>be Three Rounds</h1>
+                    <p>Matches can end with Player 1 Winning, Player 2 Winning Or a Draw.</p>
+                </li>
+                <li>
+                    <i class="fa-solid fa-eye-low-vision" aria-hidden="true"></i>
+                    <h1 style="right: -10rem;">No Cheating!</h1>
+                    <p>Play fair and have fun!</p>
+                </li>
+            </ul>
+            <button class="main-start" onclick="GameGo()" id="game_button">Next</button>
+        </section>
+        <section class="P1-screen" id="P1">
+            <ul class="rounds">
+                <li id="P1_1_1"></li>
+                <li id="P1_2_2"></li>
+                <li id="P1_3_3"></li>
+            </ul>
+            <ul class="commands">
+                <li onclick="Disclaimer('Rock')"><button> <i class="fa fa-hand-back-fist"></i></button></li>
+                <li onclick="Disclaimer('Paper')"><button><i class="fa-solid fa-hand"></i></button></li>
+                <li onclick="Disclaimer('Scissors')"><button><i class="fa-solid fa-scissors"></i></button></li>
+            </ul>
+             <div class="Choice">
+                <i id="PLAYER_CHOICE"></i>
+             </div>
+
+             <h1>Player 1's Turn</h1>
+             <div class="Deck">
+                <div class="progress">
+                    <span>Rock</span>
+                    <div class="bar rock">
+                        <div class="r_p" id="prob1"></div>
+                    </div>
+                  </div>
+                  <div class="progress">
+                    <span>Paper</span>
+                    <div class="bar paper">
+                        <div class="p_p" id="prob2"></div>
+                    </div>
+                  </div>
+                  <div class="progress">
+                    <span>Scissors</span>
+                    <div class="bar scissors">
+                        <div class="s_p" id="prob3"></div>
+                    </div>
+                  </div>
+                  <p>Your opponent’s likely next move, based on past choices.</p>
+             </div>
+        </section>
+        <section id="Disclaimer">
+            <h1>Player 1 <br> <span>MUST PASS TO</span> <br> Player 2</h1>
+            <button class="main-start" onclick="NextPlayer()">DONE</button>
+        </section>
+        <section class="P2-screen" id="P2">
+            <ul class="rounds">
+                <li id="P2_1_1"></li>
+                <li id="P2_2_2"></li>
+                <li id="P2_3_3"></li>
+            </ul>
+            <ul class="commands">
+                <li onclick="RoundResult('Rock')"><button> <i class="fa fa-hand-back-fist"></i></button></li>
+                <li onclick="RoundResult('Paper')"><button><i class="fa-solid fa-hand"></i></button></li>
+                <li onclick="RoundResult('Scissors')"><button><i class="fa-solid fa-scissors"></i></button></li>
+            </ul>
+             <div class="Choice">
+                <i id="PLAYER_CHOICE2"></i>
+             </div>
+
+             <h1>Player 2's Turn</h1>
+             <div class="Deck">
+                <div class="progress">
+                    <span>Rock</span>
+                    <div class="bar rock">
+                        <div class="r_p" id="prob1"></div>
+                    </div>
+                  </div>
+                  <div class="progress">
+                    <span>Paper</span>
+                    <div class="bar paper">
+                        <div class="p_p" id="prob2"></div>
+                    </div>
+                  </div>
+                  <div class="progress">
+                    <span>Scissors</span>
+                    <div class="bar scissors">
+                        <div class="s_p" id="prob3"></div>
+                    </div>
+                  </div>
+                  <p>Your opponent’s likely next move, based on past choices.</p>
+             </div>
+        </section>
+        <section class="RoundResult" id="RoundResult">
+            <div class="ChoiceAttack">
+                <button class="main-start" id="Finish" onclick="StartOver()">NEXT ROUND</button>
+                <ul class="rounds">
+                    <li id="P1_1"></li>
+                    <li id="P1_2"></li>
+                    <li id="P1_3"></li>
+                </ul>
+                <p>Player 1</p>
+                <div class="P1_choice" id="P1Go"></div>
+                <h1 id="Versus_tag">VERSUS</h1>
+                <div class="P2_choice" id="P2Go"></div>
+                <p>Player 2</p>
+                <ul class="rounds">
+                    <li id="P2_1"></li>
+                    <li id="P2_2"></li>
+                    <li id="P2_3"></li>
+                </ul>
+                <button class="main-start" id="Rematch" onclick="Restart()">REMATCH</button>
+            </div>
+        </section>
+        </article>
+    </main>
+    <script src="./logic.js"></script>
+</body>
+</html>
